@@ -40,8 +40,8 @@ function setup(){
     bird = new Bird(100,100);
 
     plataforma = new Ground(150,305,300,170);
-    constrainedLog = new Log(230,180,80,PI/2);
-    cadeia = new Chain(bird.body,constrainedLog.body);
+   // constrainedLog = new Log(230,180,80,PI/2);
+    cadeia = new Estilingue(bird.body,{x:200,y:100});
 
 }
 
@@ -62,8 +62,15 @@ function draw(){
     box5.display();
     bird.display();
     plataforma.display();
-    constrainedLog.display();
+    //constrainedLog.display();
     cadeia.display();
 
 
+
+}
+function mouseDragged(){
+    Matter.Body.setPosition(bird.body,{x:mouseX, y:mouseY})
+}
+function mouseRelesead(){
+    cadeia.fly()
 }
