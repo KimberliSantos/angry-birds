@@ -37,11 +37,11 @@ function setup(){
     box5 = new Box(810,160,70,70);
     log3 = new Log(760,120,150,PI/7);
     log4 = new Log(870,120,150,-PI/7);
-    bird = new Bird(100,100);
+    bird = new Bird(200,50);
 
     plataforma = new Ground(150,305,300,170);
    // constrainedLog = new Log(230,180,80,PI/2);
-    cadeia = new Estilingue(bird.body,{x:200,y:100});
+    cadeia = new Estilingue(bird.body,{x:200,y:50});
 
 }
 
