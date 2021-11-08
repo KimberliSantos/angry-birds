@@ -3,7 +3,7 @@ class Estilingue{
         var options = {
             bodyA:bodyA,
             pointB:pointB,
-            stiffness:0.4,
+            stiffness:0.04,
             length:10
         }
         this.pointB= pointB;
@@ -22,21 +22,25 @@ class Estilingue{
             push()
             stroke(48,22,8);
 
-            if(pointA.x < 220){
-                strokeWeight(7);
-                line(pointA.x-20,pointA.y,this.pointB.x-10,this.pointB.y)
-            } else{
-                strokeWeight(3)
-                image(this.estilingue3,pointA.x-25,pointA.y-10,15,30)
-            }
-
             line(pointA.x-20,pointA.y,this.pointB.x-10,this.pointB.y)
             line(pointA.x-20,pointA.y,this.pointB.x+30,this.pointB.y-3)
+            image(this.estilingue3,pointA.x-25,pointA.y-10,15,30)
+            if(pointA.x < 220){
+                strokeWeight(7);
+                //line(pointA.x-20,pointA.y,this.pointB.x-10,this.pointB.y)
+            } else{
+                strokeWeight(3)
+                
+            }
             pop()
         }
     }
 
     fly(){
         this.cadeia.bodyA= null
+    }
+
+    anexa(body){
+        this.cadeia.bodyA = body
     }
 }

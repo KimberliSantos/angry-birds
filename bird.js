@@ -4,7 +4,4 @@ class Bird extends Base {
     
     this.image = loadImage("banana/bird.png");
   };
-
-
-
 };
