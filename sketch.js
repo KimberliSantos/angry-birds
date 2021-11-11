@@ -13,6 +13,7 @@ var fundo;
 var plataforma;
 var constrainedLog;
 var cadeia;
+var estadoJogo = "inicial"
 
 function preload(){
 fundo = loadImage("banana/bg.png")
@@ -69,14 +70,19 @@ function draw(){
 
 }
 function mouseDragged(){
-    Matter.Body.setPosition(bird.body,{x:mouseX, y:mouseY})
+    if(estadoJogo==="inicial"){
+        Matter.Body.setPosition(bird.body,{x:mouseX, y:mouseY})
+
+    }
+    
 }
 function mouseReleased(){
     cadeia.fly()
+    estadoJogo = "final"
 }
 
 function keyPressed(){
     if(keyCode===32){
-cadeia.anexa(bird.body)
+//cadeia.anexa(bird.body)
     }
 }
