@@ -6,7 +6,7 @@ class Pig extends Base{
     }
 
     display(){
-    if(this.body.speed<2){
+    if(this.body.speed<3){
       super.display()
     }
     else{
@@ -18,5 +18,13 @@ image(this.image,this.body.position.x,this.body.position.y,50,50)
 pop()
       }
     }
+placar(){
+  if(this.visibilidade< 0 && this.visibilidade>-1005){
+    pontuacao++
+
+  }
+}
+
+
   };
   

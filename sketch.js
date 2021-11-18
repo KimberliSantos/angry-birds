@@ -14,9 +14,11 @@ var plataforma;
 var constrainedLog;
 var cadeia;
 var estadoJogo = "inicial"
+var fundoImage = "banana/bg.png"
+var pontuacao = 0;
 
 function preload(){
-fundo = loadImage("banana/bg.png")
+defineFundo()
 
 }
 function setup(){
@@ -47,7 +49,18 @@ function setup(){
 }
 
 function draw(){
-    background(fundo);
+    
+    if(fundoImage){
+        background(fundoImage);
+    }else{
+        background("black")
+    }
+fill("white");
+textSize(35);
+text("pontuação: "+pontuacao,900,50)
+
+
+
     Engine.update(engine);
     box1.display();
     box2.display();
@@ -66,6 +79,9 @@ function draw(){
     //constrainedLog.display();
     cadeia.display();
 
+pig1.placar()
+pig2.placar()
+
 
 
 }
@@ -83,6 +99,24 @@ function mouseReleased(){
 
 function keyPressed(){
     if(keyCode===32){
-//cadeia.anexa(bird.body)
+cadeia.anexa(bird.body)
     }
+}
+async function consultaHorario() {
+    // consulta a API pra saber o horario que estamos
+    // fetch (recuperar)
+
+    var resposta = await fetch("https://worldtimeapi.org/api/timezone/America/Sao_Paulo")
+    var respostaJson = await(resposta.json())
+    return respostaJson.datetime.slice(11,13)
+}
+function defineFundo(){
+    var horario = consultaHorario()
+var fundo
+    if(horario>=6 && horario<=19){
+ fundo="banana/bg.png"
+    }else{
+        fundo="banana/bg2.jpg"
+    }
+    fundoImage = loadImage(fundo)
 }
