@@ -9,9 +9,11 @@ class Bird extends Base {
   
   display(){
     super.display()
-    var posicao = [this.body.position.x,this.body.position.y]
-    this.trajetoria.push(posicao)
-    
+   console.log(this.body.velocity.x)
+    if(this.body.position.x>210){
+      var posicao = [this.body.position.x,this.body.position.y]
+      this.trajetoria.push(posicao)
+    }
 
     for (var i = 0; i < this.trajetoria.length; i++) {
       image(this.imageSmoke,this.trajetoria[i][0],this.trajetoria[i][1])

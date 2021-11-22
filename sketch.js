@@ -83,13 +83,16 @@ pig1.placar()
 pig2.placar()
 
 
-
+if(bird.body.position.x  < 0 || bird.body.position.y < 0){
+cadeia.anexa(bird.body)
+Matter.Body.setPosition(bird.body,{x:200, y:50})
+}
 }
 function mouseDragged(){
     if(estadoJogo==="inicial"){
         Matter.Body.setPosition(bird.body,{x:mouseX, y:mouseY})
 
-    }
+   }
     
 }
 function mouseReleased(){
@@ -99,6 +102,8 @@ function mouseReleased(){
 
 function keyPressed(){
     if(keyCode===32){
+        bird.trajetoria = []
+        Matter.Body.setPosition(bird.body,{x:200, y:50})
 cadeia.anexa(bird.body)
     }
 }
